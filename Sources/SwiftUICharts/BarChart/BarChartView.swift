@@ -24,13 +24,7 @@ public struct BarChartView : View {
     @State private var touchLocation: CGFloat = -1.0
     @State private var showValue: Bool = false
     @State private var showLabelValue: Bool = false
-    @State private var currentValue: Double = 0 {
-        didSet{
-            if(oldValue != self.currentValue && self.showValue) {
-                HapticFeedback.playSelection()
-            }
-        }
-    }
+    @State private var currentValue: String = ""
     var isFullWidth:Bool {
         return self.formSize == ChartForm.large
     }
@@ -101,7 +95,7 @@ public struct BarChartView : View {
                 .onChanged({ value in
                     self.touchLocation = value.location.x/self.formSize.width
                     self.showValue = true
-                    self.currentValue = self.getCurrentValue()?.1 ?? 0
+                    self.currentValue = self.getCurrentValue()?.0 ?? ""
                     if(self.data.valuesGiven && self.formSize == ChartForm.medium) {
                         self.showLabelValue = true
                     }
