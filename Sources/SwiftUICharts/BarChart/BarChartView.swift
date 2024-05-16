@@ -54,7 +54,7 @@ public struct BarChartView : View {
                             .font(.headline)
                             .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.textColor : self.style.textColor)
                     }else{
-                        Text("\(self.currentValue, specifier: self.valueSpecifier)")
+                        Text("\(self.currentValue)")
                             .font(.headline)
                             .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.textColor : self.style.textColor)
                     }
